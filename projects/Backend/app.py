@@ -8,7 +8,8 @@ import base64
 app = Flask(__name__)
 CORS(app)
 MURF_API_KEY = "ap2_11497d14-d9ad-4bb3-82ff-f9e080400844"
-client = genai.Client(api_key)
+
+client = genai.Client(api_key="AQ.Ab8RN6LlXl7MaQ2ZQAXwzQ7h2cEVf_PvUs87vO57OvJLGQHlig")
 
 PROMPTS = {
     "Summary": """
