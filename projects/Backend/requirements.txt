@@ -4,8 +4,3 @@ python-dotenv
 requests
 google-genai
 gunicorn
-Flask
-flask-cors
-python-dotenv
-requests
-google-genai
