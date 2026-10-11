@@ -4,13 +4,14 @@ from google import genai
 import requests
 import tempfile
 import base64
+import os
 
 app = Flask(__name__)
 CORS(app)
-MURF_API_KEY = "ap2_11497d14-d9ad-4bb3-82ff-f9e080400844"
+MURF_API_KEY = os.environ.get("MURF_API_KEY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
-client = genai.Client(api_key="AQ.Ab8RN6LlXl7MaQ2ZQAXwzQ7h2cEVf_PvUs87vO57OvJLGQHlig")
-
+client = genai.Client(api_key=GEMINI_API_KEY)
 PROMPTS = {
     "Summary": """
 You are a professional tourist guide.
@@ -111,4 +112,5 @@ def generate_audio_guide():
         "audioBase64": encoded_audio
                 }
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
